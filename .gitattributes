@@ -1,5 +1,5 @@
 * text=auto
-*.Laravel linguist-detectable=true
+*.PHP linguist-detectable=true
 *.blade.php diff=html
 *.css diff=css
 *.html diff=html
