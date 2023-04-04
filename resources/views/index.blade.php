@@ -15,7 +15,7 @@
 
 <div class="col-md-12 order-button">
         <!-- Example row of columns -->
-        <a href="#" class="btn btn-primary btn-lg active center" role="button" aria-pressed="true">Zamów transport</a>
+        <a href="{{url('/rezerwacja')}}" class="btn btn-primary btn-lg active center" role="button" aria-pressed="true">Zamów transport</a>
 </div>
 
       <!-- Marketing messaging and featurettes
