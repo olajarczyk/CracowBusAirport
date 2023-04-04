@@ -152,7 +152,7 @@ border-bottom-left-radius: 0px;
                     <span id="place-name" class="title"></span><br />
                     <span id="place-address"></span>
                   </div>
-                  <div id="legend"><p style="font-size: 16px; padding-bottom: 30px;" id="local"></p><p style="font-weight: 600; margin-top: 30px; " id="price"></p><button id="back" type="button" class="btn btn-secondary">Wróć</button><button id="next_two" type="button" class="btn btn-secondary" style="background-color: #03989e;">Dalej</button></div>
+                  <div id="legend"><p style="font-size: 16px; padding-bottom: 30px;" id="local"></p><p style="font-weight: 600; margin-top: 30px; " id="price"></p><a href="{{url('/rezerwacja')}}" class="btn btn-secondary" id="back">Wróć</a><a href="{{url('/checkout')}}" class="btn btn-secondary" id="next_two">Dalej</a></div>
                   <!--<input type="submit" name="submit" value="Save" class="form-control btn btn-primary">-->
                </div>
             </div>

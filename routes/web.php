@@ -84,6 +84,10 @@ Route::get('/rezerwacja', function () {
     return view('reservation');
 });
 
+Route::get('/checkout', function () {
+    return view('checkout');
+});
+
 Route::get('cennik', [PriceController::class, 'index']);
 Route::get('faq', [FAQController::class, 'index_display']);
 
