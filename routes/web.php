@@ -80,6 +80,10 @@ Route::get('/map', function () {
     return view('map');
 });
 
+Route::get('/rezerwacja', function () {
+    return view('reservation');
+});
+
 Route::get('cennik', [PriceController::class, 'index']);
 Route::get('faq', [FAQController::class, 'index_display']);
 

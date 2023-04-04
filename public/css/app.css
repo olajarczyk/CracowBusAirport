@@ -1633,7 +1633,7 @@ button, [type="button"] {
 }
 
 .header-dark {
-  background:url(../../assets/img/mountain_bg.jpg) #1e2129;
+  background: #1e2129;
   background-size:cover;
   padding-bottom:80px;
 }
@@ -2059,6 +2059,110 @@ margin-top: 3%;
   margin-top: -10%;
 }
 
+#time {
+  width: 70%;
+  border-radius: 20px;
+}
+
+#date {
+  width: 70%;
+  border-radius: 20px;
+}
+
+[type="time"]:focus {
+  --tw-ring-color: #f82249;
+  border-color: #f82249;
+}
+
+[type="date"]:focus {
+  --tw-ring-color: #f82249;
+  border-color: #f82249;
+}
+
+#passengers {
+  display: flex;
+width: 100%;
+padding: .375rem .75rem;
+font-size: 1rem;
+font-weight: 400;
+line-height: 1.5;
+color: #212529;
+background-color: #fff;
+background-clip: padding-box;
+border: 1px solid #ced4da;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+border-radius: .25rem;
+transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary:focus{
+  box-shadow: 0 0 0 .25rem #f82249;
+}
+
+#add {
+  background-color: transparent;
+  color: black;
+}
+
+#subtract {
+  background-color: transparent;
+  color: black;
+  padding-left: 20px;
+}
+
+#add_two {
+  background-color: transparent;
+  color: black;
+}
+
+#subtract_two {
+  background-color: transparent;
+  color: black;
+  padding-left: 20px;
+}
+
+#output{
+  padding: 20px;
+}
+
+#output_two{
+  padding: 20px;
+}
+
+#children_result {
+  padding-left:10px;
+}
+
+#child_result {
+  padding-left:10px;
+}
+
+#result {
+  padding-right:10px;
+}
+
+#next {
+  width:50%;
+  border-radius: 20px;
+}
+
+#from {
+  margin-top: 10px;
+}
+
+label {
+  font-weight: bold;
+}
+
+#form > h1 {
+  font-weight: bold;
+}
+
+#form {
+  margin-top: 20%;
+}
 
 
 
