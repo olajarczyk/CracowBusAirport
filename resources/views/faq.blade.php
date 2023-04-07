@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-lg-12">
             <h2>FAQ</h2>
-            <p>Lista najczęściej zadawanych pytań.</p>
+            <p>{{ __('lang.faq_text') }}</p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
@@ -35,15 +35,15 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Ogólne
+      {{ __('lang.general') }}
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <table class="table table-bordered">  
           <tr>
-          <th>Pytanie</th>
-          <th>Odpowiedź</th>
+          <th>{{ __('lang.answear') }}</th>
+          <th>{{ __('lang.question') }}</th>
           </tr>
           <tr>  
           @foreach ($faq->where('category','general') as $faq)
@@ -58,15 +58,15 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Płatności
+      {{ __('lang.payments') }}
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <table class="table table-bordered">  
           <tr>
-          <th>Pytanie</th>
-          <th>Odpowiedź</th>
+          <th>{{ __('lang.answear') }}</th>
+          <th>{{ __('lang.question') }}</th>
           </tr>
           <tr>  
           @foreach ($faq->where('category','payment') as $payment)
@@ -81,15 +81,15 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-        Ogólne
+      {{ __('lang.account') }}
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <table class="table table-bordered">  
           <tr>
-          <th>Pytanie</th>
-          <th>Odpowiedź</th>
+          <th>{{ __('lang.answear') }}</th>
+          <th>{{ __('lang.question') }}</th>
           </tr>
           <tr>  
           @foreach ($faq->where('category','account') as $account)

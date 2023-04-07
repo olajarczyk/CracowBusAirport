@@ -10,12 +10,7 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocalizationController;
-use App\Http\Controllers\ContactController;
-use Illuminate\Support\Facades\App;
 
-
-
-use Illuminate\Support\Facades\DB;
 
 
 /*
@@ -86,6 +81,10 @@ Route::get('/faq', function () {
 
 Route::get('/map', function () {
     return view('map');
+});
+
+Route::get('/kontakt', function () {
+    return view('contact');
 });
 
 Route::get('/rezerwacja', function () {
