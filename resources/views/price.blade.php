@@ -4,7 +4,7 @@
             <div class="container hero">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <h1 class="text-center">Wygodne metody płatności.</h1>
+                        <h1 class="text-center">{{ __('lang.payment') }}</h1>
                         <img src="{{ asset('images/cennik.svg')}}" alt="Airport" >
                     </div>
                 </div>

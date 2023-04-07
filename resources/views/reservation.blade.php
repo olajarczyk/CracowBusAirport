@@ -60,6 +60,7 @@
 </div>
 </div>
 </div>
+<script src="{{ asset('js/main.js')}}"></script>
 @include('script')
 </main>
 
