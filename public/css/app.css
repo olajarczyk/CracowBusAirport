@@ -2164,5 +2164,17 @@ label {
   margin-top: 20%;
 }
 
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .header-dark .hero {
+  margin-top: 0px;
+}
+}
+
+.login-text{
+  color: white !important;
+}
+
+
 
 

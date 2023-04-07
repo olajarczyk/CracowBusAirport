@@ -4,7 +4,7 @@
             <div class="container hero">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <h1 class="text-center">Stały kontakt z klientem.</h1>
+                        <h1 class="text-center">{{ __('lang.constant_contact') }}</h1>
                         <img src="{{ asset('images/kontakt.svg')}}" alt="Airport" >
                     </div>
                 </div>

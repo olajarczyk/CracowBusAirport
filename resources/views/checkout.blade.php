@@ -25,30 +25,30 @@
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Skąd?</h6>
-                        <small id="from" class="text-muted">Brief description</small>
+                        <small id="from" class="text-muted">-</small>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Do</h6>
-                        <small id="to" class="text-muted">Brief description</small>
+                        <small id="to" class="text-muted">-</small>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Kiedy?</h6>
-                        <small id="when" class="text-muted">Brief description</small>
+                        <small id="when" class="text-muted">-</small>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between lh-condensed">
                     <div>
                         <h6 class="my-0">Godzina odbioru</h6>
-                        <small id="hour" class="text-muted">Brief description</small>
+                        <small id="hour" class="text-muted">-</small>
                     </div>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Suma</span>
-                    <small id="price" class="text-muted">100 zł</small>
+                    <small id="price" class="text-muted">- zł</small>
                 </li>
             </ul>
         </div>
@@ -130,6 +130,7 @@
 </div>
 </div>
 @include('script')
+<script src="{{ asset('js/checkout.js')}}"></script>
 </main>
 
       <!-- FOOTER -->

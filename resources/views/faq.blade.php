@@ -4,7 +4,7 @@
             <div class="container hero">
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
-                        <h1 class="text-center">Najczęściej zadawane pytania i odpowiedzi.</h1>
+                        <h1 class="text-center">{{ __('lang.faq_title') }}</h1>
                         <img src="{{ asset('images/faq.svg')}}" alt="Airport" >
                     </div>
                 </div>

@@ -8,6 +8,11 @@ use App\Http\Controllers\StopsController;
 use App\Http\Controllers\DistrictsController;
 use App\Http\Controllers\PriceController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\ContactController;
+use Illuminate\Support\Facades\App;
+
 
 
 use Illuminate\Support\Facades\DB;
@@ -34,7 +39,7 @@ Route::get('/administrator', function () {
 
 Route::get('/dashboard', function () {
     return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -55,6 +60,12 @@ Route::controller(AdminController::class)->group(function() {
    // Route::get('/admin/cennik', 'StopsMethod') -> name('stops.page');
 });
 
+Route::controller(LoginController::class)->group(function() {
+    Route::get('/logout', 'destroy') -> name('logout');
+    Route::get('/profile', 'Profile');
+   // Route::get('/admin/cennik', 'StopsMethod') -> name('stops.page');
+});
+
 Route::get('admin/cennik', [StopsController::class, 'index_stops']);
 Route::post('admin/cennik/stops', [StopsController::class, 'store_stops']);
 
@@ -72,9 +83,6 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/kontakt', function () {
-    return view('contact');
-});
 
 Route::get('/map', function () {
     return view('map');
@@ -88,10 +96,20 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+Route::get('/register', function () {
+    return view('auth.register');
+});
+
 Route::get('cennik', [PriceController::class, 'index']);
 Route::get('faq', [FAQController::class, 'index_display']);
+//Route::get('kontakt', [ContactController::class, 'change'])->name('LangChange');
 
-
+Route::get('lang/home', [LocalizationController::class, 'index']);
+Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
 
 
 require __DIR__.'/auth.php';
