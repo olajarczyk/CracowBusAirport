@@ -20,33 +20,33 @@
 <div class="container marketing">
 <div class="row featurette justify-content-center">
     <div class="col-md-12">
-      <h1 class="mb-3">Skontaktuj się z nami!</h1>
+      <h1 class="mb-3">{{ __('lang.contact_text') }}</h1>
       <form>
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="your-name" class="form-label">Imię</label>
+            <label for="your-name" class="form-label">{{ __('lang.name') }}</label>
             <input type="text" class="form-control" id="your-name" name="your-name" required>
           </div>
           <div class="col-md-6">
-            <label for="your-surname" class="form-label">Nazwisko</label>
+            <label for="your-surname" class="form-label">{{ __('lang.surname') }}</label>
             <input type="text" class="form-control" id="your-surname" name="your-surname" required>
           </div>
           <div class="col-md-6">
-            <label for="your-email" class="form-label">Email</label>
+            <label for="your-email" class="form-label">{{ __('lang.email') }}</label>
             <input type="email" class="form-control" id="your-email" name="your-email" required>
           </div>
           <div class="col-md-6">
-            <label for="your-subject" class="form-label">Tytuł emaila</label>
+            <label for="your-subject" class="form-label">{{ __('lang.title_email') }}</label>
             <input type="text" class="form-control" id="your-subject" name="your-subject">
           </div>
           <div class="col-12">
-            <label for="your-message" class="form-label">Wiadomość</label>
+            <label for="your-message" class="form-label">{{ __('lang.message') }}</label>
             <textarea class="form-control" id="your-message" name="your-message" rows="5" required></textarea>
           </div>
           <div class="col-12">
             <div class="row">
               <div class="col-md-6">
-                <button type="submit" class="btn btn-dark w-100 fw-bold" >Wyślij</button>
+                <button type="submit" class="btn btn-dark w-100 fw-bold" >{{ __('lang.send') }}</button>
               </div>
             </div>
           </div>

@@ -21,8 +21,8 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-12">
-            <h2>Cennik usług</h2>
-            <p>Z Nami możesz podróżować elastycznie. W cenniku znajdziesz ceny za przejazd na konkretny przystanek, bądź za dowóz pod adres na podstawie dzielnicy Krakowa, która wybierzesz.</p>
+            <h2>{{ __('lang.pricelist_service') }}</h2>
+            <p>{{ __('lang.pricelist_text') }}</p>
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
 
@@ -35,15 +35,15 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-        Przystanki
+      {{ __('lang.stops') }}
       </button>
     </h2>
     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <table class="table table-bordered">  
           <tr>
-          <th>Przystanek</th>
-          <th>Cena</th>
+          <th>{{ __('lang.stop') }}</th>
+          <th>{{ __('lang.price') }}</th>
           </tr>
           <tr>  
           @foreach ($stops as $stop)
@@ -58,15 +58,15 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Dzielnice
+      {{ __('lang.districts') }}
       </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
         <table class="table table-bordered">  
           <tr>
-          <th>Dzielnica</th>
-          <th>Cena</th>
+          <th>{{ __('lang.district') }}</th>
+          <th>{{ __('lang.price') }}</th>
           </tr>
           <tr>  
           @foreach ($districts as $district)
