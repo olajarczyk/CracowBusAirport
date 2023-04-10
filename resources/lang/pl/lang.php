@@ -21,7 +21,7 @@ return [
     'constant_contact' => 'Stały kontakt z klientem.',
     'faq_title' => 'Najczęściej zadawane pytania i odpowiedzi',
     'title' => 'Kraków Airport Bus',
-    'pricelist' => 'Cennik usług',
+    'pricelist_service' => 'Cennik usług',
     'pricelist_text' => 'Z Nami możesz podróżować elastycznie. W cenniku znajdziesz ceny za przejazd na konkretny przystanek, bądź za dowóz pod adres na podstawie dzielnicy Krakowa, która wybierzesz.',
     'stop' => 'Przystanek',
     'stops' => 'Przystanki',

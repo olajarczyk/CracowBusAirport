@@ -10,6 +10,8 @@ use App\Http\Controllers\PriceController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderDetailsController;
 
 
 
@@ -24,10 +26,8 @@ use App\Http\Controllers\LocalizationController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
+// Panel Admin
 Route::get('/administrator', function () {
     return view('auth.login');
 });
@@ -52,13 +52,11 @@ Route::controller(AdminController::class)->group(function() {
     Route::post('/store/profile', 'StoreProfile') -> name('store.profile');
     Route::get('/change/password', 'ChangePassword') -> name('change.password');
     Route::post('/update/password', 'UpdatePassword') -> name('update.password');
-   // Route::get('/admin/cennik', 'StopsMethod') -> name('stops.page');
 });
 
 Route::controller(LoginController::class)->group(function() {
     Route::get('/logout', 'destroy') -> name('logout');
     Route::get('/profile', 'Profile');
-   // Route::get('/admin/cennik', 'StopsMethod') -> name('stops.page');
 });
 
 Route::get('admin/cennik', [StopsController::class, 'index_stops']);
@@ -69,6 +67,12 @@ Route::post('admin/cennik', [DistrictsController::class, 'store']);
 
 Route::get('admin/faq', [FAQController::class, 'index']);
 Route::post('admin/faq', [FAQController::class, 'store']);
+
+
+//Pages
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('/cennik', function () {
     return view('price');
@@ -95,6 +99,10 @@ Route::get('/checkout', function () {
     return view('checkout');
 });
 
+Route::get('cennik', [PriceController::class, 'index']);
+Route::get('faq', [FAQController::class, 'index_display']);
+
+//Login and register
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -103,12 +111,17 @@ Route::get('/register', function () {
     return view('auth.register');
 });
 
-Route::get('cennik', [PriceController::class, 'index']);
-Route::get('faq', [FAQController::class, 'index_display']);
-//Route::get('kontakt', [ContactController::class, 'change'])->name('LangChange');
 
+//Language version
 Route::get('lang/home', [LocalizationController::class, 'index']);
 Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
 
+
+//Make order
+Route::get('checkout', [OrderController::class, 'index']);
+Route::post('checkout', [OrderController::class, 'store'])->name('checkoutDetails');
+
+//Make order deatails
+Route::post('checkout_deatils', [OrderDetailsController::class, 'store'])->name('orderDetails');
 
 require __DIR__.'/auth.php';

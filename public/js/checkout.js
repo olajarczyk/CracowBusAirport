@@ -12,6 +12,15 @@ window.onload = function() {
     let hour = (sessionStorage.getItem("time")) ? sessionStorage.getItem("time") : null;
     document.getElementById('hour').innerHTML = hour;
 
+    let passengers = (sessionStorage.getItem("passengers")) ? sessionStorage.getItem("passengers") : null;
+    document.getElementById('passengers').innerHTML = passengers;
+
+    let child = (sessionStorage.getItem("child")) ? sessionStorage.getItem("child") : null;
+    document.getElementById('child').innerHTML = child;
+
+    let adult = (sessionStorage.getItem("adult")) ? sessionStorage.getItem("adult") : null;
+    document.getElementById('adult').innerHTML = adult;
+
     let price = (sessionStorage.getItem("price")) ? sessionStorage.getItem("price") : null;
     document.getElementById('price').innerHTML = price+ " zł";
 
