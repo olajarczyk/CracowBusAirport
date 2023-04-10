@@ -71,6 +71,84 @@
         sessionStorage.setItem("lang",  $(this).val());
     }); 
 
+    let from = (sessionStorage.getItem("direction")) ? sessionStorage.getItem("direction") : null;
+    let passengers = (sessionStorage.getItem("passengers")) ? sessionStorage.getItem("passengers") : null;
+    let adult = (sessionStorage.getItem("adult")) ? sessionStorage.getItem("adult") : null;
+    let child = (sessionStorage.getItem("child")) ? sessionStorage.getItem("child") : null;
+    let to = (sessionStorage.getItem("to")) ? sessionStorage.getItem("to") : null;
+    let date = (sessionStorage.getItem("date")) ? sessionStorage.getItem("date") : null;
+    let hour = (sessionStorage.getItem("time")) ? sessionStorage.getItem("time") : null;
+    let price = (sessionStorage.getItem("price")) ? sessionStorage.getItem("price") : null;
+
+    let name = $( "#name" ).val();
+    let surname = $( "#surname" ).val();
+    let email = $( "#email" ).val();
+    let phone = $( "#phone" ).val();
+    let user_id = $( "#user_id" ).val();
+
+
+
+    $.ajaxSetup({
+
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"').attr('content')
+        }
+    })
+
+    $(function() {
+        $('#next_checkout').click(function(e) {
+            e.preventDefault();
+          $.ajax({
+                 url: "{{ route('orderDetails') }}",
+                 data: {
+                  from:from,
+                  passengers:passengers,
+                  adult:adult,
+                  child:child,
+                  to: to,
+                  date: date, 
+                  hour:hour,
+                  price:price,
+                },
+                 type: 'POST',
+                 success:function(data){
+                    if($.isEmptyObject(data.error)){
+                        alert(data.success);
+                        location.reload();
+                    }else{
+                        printErrorMsg(data.error);
+                    }
+                }
+          });
+
+          $.ajax({
+                 url: "{{ route('checkoutDetails') }}",
+                 data: {
+                  user_id:user_id,
+                  name:name,
+                  surname:surname,
+                  email:email,
+                  phone:phone,
+                  to: to,
+                },
+                 type: 'POST',
+                 success:function(data){
+                    if($.isEmptyObject(data.error)){
+                        alert(data.success);
+                        location.reload();
+                    }else{
+                        printErrorMsg(data.error);
+                    }
+                }
+          });
+         });
+        });
+
+        function printErrorMsg (msg) {
+            console.log(msg);
+        }
+
+
 </script>
 
 </html>

@@ -395,7 +395,7 @@ $(function() {
       let price = (window.sessionStorage.getItem("price")) ? sessionStorage.getItem("price") : null;
       let time = (window.sessionStorage.getItem("time")) ? sessionStorage.getItem("time") : null;
     $.ajax({
-           url: 'ajax.php',
+           url: '',
            data: {
             passengers:passengers,
             date: date,
@@ -404,7 +404,7 @@ $(function() {
             price:price,
             time:time
           },
-           type: 'POST' 
+           type: 'POST'
     }).done(function(resp) {
           alert(resp);
     });

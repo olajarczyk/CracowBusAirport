@@ -2168,6 +2168,15 @@ label {
   /* For mobile phones: */
   .header-dark .hero {
   margin-top: 0px;
+  
+}
+
+.footer-content .contact-widget {
+  margin-left: 0px;
+}
+
+.footer-bottom .footer-nav {
+  text-align: left;
 }
 }
 
@@ -2175,6 +2184,9 @@ label {
   color: white !important;
 }
 
+.btn-order {
+  width: 50%;
+}
 
 
 
