@@ -70,24 +70,16 @@
         window.location.href = url + "?lang="+ $(this).val();
         sessionStorage.setItem("lang",  $(this).val());
     }); 
-
     let from = (sessionStorage.getItem("direction")) ? sessionStorage.getItem("direction") : null;
     let passengers = (sessionStorage.getItem("passengers")) ? sessionStorage.getItem("passengers") : null;
     let adult = (sessionStorage.getItem("adult")) ? sessionStorage.getItem("adult") : null;
-    let child = (sessionStorage.getItem("child")) ? sessionStorage.getItem("child") : null;
+    let child = (sessionStorage.getItem("children")) ? sessionStorage.getItem("children") : null;
     let to = (sessionStorage.getItem("to")) ? sessionStorage.getItem("to") : null;
     let date = (sessionStorage.getItem("date")) ? sessionStorage.getItem("date") : null;
     let hour = (sessionStorage.getItem("time")) ? sessionStorage.getItem("time") : null;
     let price = (sessionStorage.getItem("price")) ? sessionStorage.getItem("price") : null;
 
-    let name = $( "#name" ).val();
-    let surname = $( "#surname" ).val();
-    let email = $( "#email" ).val();
-    let phone = $( "#phone" ).val();
-    let user_id = $( "#user_id" ).val();
-
-
-
+    
     $.ajaxSetup({
 
         headers: {
@@ -97,10 +89,21 @@
 
     $(function() {
         $('#next_checkout').click(function(e) {
+
             e.preventDefault();
-          $.ajax({
+
+            let user_id = $( "#user_id" ).val();
+            let name = $( "#name" ).val();
+            let surname = $( "#surname" ).val();
+            let email = $( "#email" ).val();
+            let phone = $( "#phone" ).val();
+
+
+             $.ajax({
+            
                  url: "{{ route('orderDetails') }}",
                  data: {
+                  user_id:user_id,
                   from:from,
                   passengers:passengers,
                   adult:adult,
@@ -109,6 +112,10 @@
                   date: date, 
                   hour:hour,
                   price:price,
+                  name:name,
+                  surname:surname,
+                  email:email,
+                  phone:phone,
                 },
                  type: 'POST',
                  success:function(data){
@@ -121,26 +128,6 @@
                 }
           });
 
-          $.ajax({
-                 url: "{{ route('checkoutDetails') }}",
-                 data: {
-                  user_id:user_id,
-                  name:name,
-                  surname:surname,
-                  email:email,
-                  phone:phone,
-                  to: to,
-                },
-                 type: 'POST',
-                 success:function(data){
-                    if($.isEmptyObject(data.error)){
-                        alert(data.success);
-                        location.reload();
-                    }else{
-                        printErrorMsg(data.error);
-                    }
-                }
-          });
          });
         });
 
@@ -148,7 +135,11 @@
             console.log(msg);
         }
 
-
+        //Header loggin
+        $("#button").click(function() {  
+            $("#box form").toggle("slow");
+            return false;
+        });
 </script>
 
 </html>

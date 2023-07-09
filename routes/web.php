@@ -11,7 +11,6 @@ use App\Http\Controllers\FAQController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\OrderDetailsController;
 
 
 
@@ -55,7 +54,7 @@ Route::controller(AdminController::class)->group(function() {
 });
 
 Route::controller(LoginController::class)->group(function() {
-    Route::get('/logout', 'destroy') -> name('logout');
+   // Route::get('/logout', 'destroy') -> name('logout');
     Route::get('/profile', 'Profile');
 });
 
@@ -68,10 +67,18 @@ Route::post('admin/cennik', [DistrictsController::class, 'store']);
 Route::get('admin/faq', [FAQController::class, 'index']);
 Route::post('admin/faq', [FAQController::class, 'store']);
 
+//Language version
+Route::get('lang/home', [LocalizationController::class, 'index']);
+Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
+
 
 //Pages
 Route::get('/', function () {
     return view('index');
+});
+
+Route::get('/account', function () {
+    return view('account');
 });
 
 Route::get('/cennik', function () {
@@ -112,16 +119,11 @@ Route::get('/register', function () {
 });
 
 
-//Language version
-Route::get('lang/home', [LocalizationController::class, 'index']);
-Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
-
-
 //Make order
-Route::get('checkout', [OrderController::class, 'index']);
-Route::post('checkout', [OrderController::class, 'store'])->name('checkoutDetails');
+Route::get('checkout', [OrderController::class, 'index_checkout']);
+Route::post('order_details', [OrderController::class, 'store'])->name('orderDetails');
+Route::get('account', [OrderController::class, 'index_display']);
 
-//Make order deatails
-Route::post('checkout_deatils', [OrderDetailsController::class, 'store'])->name('orderDetails');
+
 
 require __DIR__.'/auth.php';

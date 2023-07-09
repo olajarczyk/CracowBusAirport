@@ -5,7 +5,7 @@ window.onload = function() {
        let subract = document.querySelector("#subtract");
         //if user don't want change number of passengers
        sessionStorage.setItem("adult", 1);
-       sessionStorage.setItem("child", 0);
+       sessionStorage.setItem("children", 0);
        
        //Adult
        add.addEventListener("click", function () {

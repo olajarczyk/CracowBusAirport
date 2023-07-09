@@ -9,6 +9,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>  
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
     <link href="{{ asset('css/app.css')}}" rel="stylesheet" type="text/css" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
@@ -27,10 +28,59 @@
                             <li class="nav-item" role="presentation"><a class="nav-link" href="{{url('/faq')}}">{{ __('lang.faq') }}</a></li>
                             <li class="nav-item" role="presentation" ><a class="nav-link" href="{{url('/kontakt')}}">{{ __('lang.contact') }}</a></li>
                         </ul>
-
                         @guest
                         <form class="form-inline mr-auto" target="_self">
-                        </form><span class="navbar-text"><a href="{{url('/login')}}" class="login">{{ __('lang.loggin') }}</a></span><a class="btn btn-light action-button" role="button" href="{{url('/register')}}">{{ __('lang.register') }}</a></div>
+                        </form><a class="btn btn-light action-button" role="button" href="{{url('/register')}}">{{ __('lang.register') }}</a></div>
+                        <div id="box">
+                            <span id="button" class="navbar-text">{{ __('lang.loggin') }}</span>
+                                <form method="POST" action="{{ route('login') }}" id="form">
+                                @csrf
+                                <!-- Email Address -->
+                                <div>
+                                    <x-input-label for="email" :value="__('Email')" />
+                                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                </div>
+
+                                <!-- Password -->
+                                <div class="mt-4">
+                                    <x-input-label for="password" :value="__('Password')" />
+
+                                    <x-text-input id="password" class="block mt-1 w-full"
+                                                    type="password"
+                                                    name="password"
+                                                    required autocomplete="current-password" />
+
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                </div>
+
+                                <!-- Remember Me -->
+                                <div class="block mt-4">
+                                    <label for="remember_me" class="inline-flex items-center">
+                                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                                    </label>
+                                </div>
+
+                                <div class="flex items-center justify-end mt-4">
+                                    @if (Route::has('password.request'))
+                                        <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                                            {{ __('Forgot your password?  ') }}
+                                        </a>
+                                    @endif
+
+                                    @if (Route::has('register'))
+                                        <a style="padding-left: 10px;" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('register') }}">
+                                            {{ ('Create account') }}
+                                        </a>
+                                    @endif
+
+                                    <x-primary-button class="ml-3">
+                                        {{ __('Log in') }}
+                                    </x-primary-button>
+                                </div>
+                            </form>
+                        </div>
                         @endguest
                         @auth
                         @php
@@ -38,7 +88,8 @@
                         $userData = App\Models\User::find($id);
                         @endphp
                         <form class="form-inline mr-auto" target="_self">
-                        </form><span class="navbar-text login-text"><p>{{ __('lang.welcome') }} {{$userData->name}}</p></div>
+                        </form><span class="welcome"><p id="welcome-name">{{ __('lang.welcome') }} {{$userData->name}}</p>
+                        <a id="myAccount" class="nav-link" href="{{url('/account')}}">{{ __('lang.myaccount') }}</a></div>
                         @endauth
                         <form class="form-inline mr-auto" target="_self">
                         </form><div class="col-md-3">

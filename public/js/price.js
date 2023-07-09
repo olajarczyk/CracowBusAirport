@@ -50,8 +50,8 @@ function containsNumbers(str) {
 
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 60.13521, lng: 10.69954},
-           zoom: 9,
+    center: {lat: 50.08089284731891, lng: 19.795422235223093},
+           zoom: 13,
     mapTypeId: 'roadmap'
   });
   var infowindow = new google.maps.InfoWindow();
@@ -64,9 +64,7 @@ function initAutocomplete() {
 
   const log = document.getElementById('local');
   const input_two = document.getElementById('pac-input');
-  input_two.addEventListener('input', function () {
-    //inputObject.parentNode.replaceChild(inputObject.cloneNode(true),input_two);
-   // document.getElementsByClassName("pac-container")[0].setAttribute('disabled'); 
+  input_two.addEventListener('input', function () { 
     if(input_two.value==="Miasteczko Studenckie AGH, Kraków, Polska"){
       $(".pac-container").css("visibility", "hidden");
       getLocal();
@@ -382,34 +380,11 @@ window.onload = function() {
         document.getElementById('price').style.color = "black";   
   });
 
-  
-  //AJAX--------------------------------------------------------------------------------------------------------------------------------
- sessionStorage.setItem("passengers", multiplier); 
-  
-$(function() {
-  $('#next_two').click(function(e) {
-      let passengers = (window.sessionStorage.getItem("passengers")) ? sessionStorage.getItem("passengers") : null;
-      let date = (window.sessionStorage.getItem("date")) ? sessionStorage.getItem("date") : null;
-      let from = (window.sessionStorage.getItem("direction")) ? sessionStorage.getItem("direction") : null;
-      let to = (window.sessionStorage.getItem("to")) ? sessionStorage.getItem("to") : null;
-      let price = (window.sessionStorage.getItem("price")) ? sessionStorage.getItem("price") : null;
-      let time = (window.sessionStorage.getItem("time")) ? sessionStorage.getItem("time") : null;
-    $.ajax({
-           url: '',
-           data: {
-            passengers:passengers,
-            date: date,
-            from: from, 
-            to:to,
-            price:price,
-            time:time
-          },
-           type: 'POST'
-    }).done(function(resp) {
-          alert(resp);
-    });
-   });
-  });
+  let adult = (sessionStorage.getItem("adult")) ? sessionStorage.getItem("adult") : null;
+  let child = (sessionStorage.getItem("child")) ? sessionStorage.getItem("child") : null;
+
+  sessionStorage.setItem("passengers", Number(adult)+Number(child));
+
   }
   
 
