@@ -1672,16 +1672,25 @@ button, [type="button"] {
 
 .header-dark .navbar .navbar-collapse span {
   margin-top:5px;
+  background: white;
+    border-radius: 20px;
+    font-size: inherit;
+    color: #f82249;
+    box-shadow: none;
+    border: none;
+    text-shadow: none;
+    padding: .5rem .8rem;
+    transition: background-color 0.25s;
 }
 
-.header-dark .navbar .navbar-collapse span .login {
-  color:#d9d9d9;
-  margin-right:.5rem;
-  text-decoration:none;
+#welcome-name{
+  float:inline-end !important;
+  margin-top: 8px;
 }
 
-.header-dark .navbar .navbar-collapse span .login:hover {
-  color:#fff;
+#myAccount{
+  float:inline-end !important;
+  color: #f82249;
 }
 
 .header-dark .navbar .navbar-toggler {
@@ -2188,5 +2197,79 @@ label {
   width: 50%;
 }
 
+.header-account{
+  padding-bottom: 0px;
+}
 
+#box {
+  padding:5px;
+  z-index:10;
+  position:relative;  
+  padding-right: 10px;
+}
+#box form {
+ background:white;
+ padding:20px;
+ display:none;
+ position:absolute;
+ top:27px;
+ width: 320px;
+ border-radius:10px;
+}
+input[type="submit"] {
+  background:none;
+  color:#fff;
+  border:none;
+  text-align:left;
+  cursor:pointer;
+}
+
+#button {
+  background:white;
+  border-radius:20px;
+  font-size:inherit;
+  color:#f82249;
+  box-shadow:none;
+  border:none;
+  text-shadow:none;
+  padding:.5rem .8rem;
+  transition:background-color 0.25s;
+}
+
+#email {
+  color:black;
+}
+
+#password {
+  color:black;
+}
+
+[type="checkbox"]{
+  background-color: #f82249;
+}
+
+.welcome {
+  background: transparent !important;
+}
+
+#welcome-name {
+  color:white;
+}
+
+#myAccount {
+  background:white;
+  border-radius:20px;
+  font-size:inherit;
+  color:#f82249;
+  box-shadow:none;
+  border:none;
+  text-shadow:none;
+  padding:.5rem .8rem;
+  transition:background-color 0.25s;
+  margin-right:10px;
+}
+
+.fixed-sidebar .app-sidebar {
+  position: absolute !important;
+}
 

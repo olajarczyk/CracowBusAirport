@@ -41,5 +41,6 @@ return [
     'title_email' => 'Tytuł emaila',
     'message' => 'Wiadomość',
     'send' => 'Wyślij',
-
+    'myaccount' => 'Moje konto',
+    'myorders' => 'Rezerwacje',
 ];

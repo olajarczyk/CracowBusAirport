@@ -15,7 +15,7 @@ window.onload = function() {
     let passengers = (sessionStorage.getItem("passengers")) ? sessionStorage.getItem("passengers") : null;
     document.getElementById('passengers').innerHTML = passengers;
 
-    let child = (sessionStorage.getItem("child")) ? sessionStorage.getItem("child") : null;
+    let child = (sessionStorage.getItem("children")) ? sessionStorage.getItem("children") : null;
     document.getElementById('child').innerHTML = child;
 
     let adult = (sessionStorage.getItem("adult")) ? sessionStorage.getItem("adult") : null;

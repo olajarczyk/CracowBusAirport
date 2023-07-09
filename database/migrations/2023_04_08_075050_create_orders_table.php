@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->bigInteger('detail_orders_id')->unsigned()->index();
             $table->string('name');
             $table->string('surname');
             $table->string('email');
@@ -24,6 +25,7 @@ return new class extends Migration
 
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('detail_orders_id')->references('id')->on('detail_orders');
         });
     }
 

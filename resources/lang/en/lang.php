@@ -43,4 +43,6 @@ return [
     'title_email' => 'Email title',
     'message' => 'Message',
     'send' => 'Send',
+    'myaccount' => 'My account',
+    'myorders' => 'Reservations',
 ];

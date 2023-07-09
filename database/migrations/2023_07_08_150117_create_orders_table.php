@@ -13,20 +13,35 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_orders', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->date('date');
-            $table->string('hour');
             $table->integer('passengers');
             $table->integer('adult');
             $table->integer('child');
             $table->string('from');
             $table->string('to');
+            $table->date('date');
+            $table->string('hour');
             $table->integer('price');
+            $table->string('name');
+            $table->string('surname');
+            $table->string('email');
+            $table->string('phone');
             $table->timestamps();
+
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
-   
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('orders');
+    }
 };

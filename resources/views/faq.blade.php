@@ -69,9 +69,9 @@
           <th>{{ __('lang.question') }}</th>
           </tr>
           <tr>  
-          @foreach ($faq->where('category','payment') as $payment)
-          <td>{{ $payment->questions }}</td>
-          <td>{{ $payment->answears }}</td>
+          @foreach ($faq->where('category','payment') as $faq)
+          <td>{{ $faq->questions }}</td>
+          <td>{{ $faq->answears }}</td>
           </tr> 
           @endforeach
         </table> 
@@ -92,9 +92,9 @@
           <th>{{ __('lang.question') }}</th>
           </tr>
           <tr>  
-          @foreach ($faq->where('category','account') as $account)
-          <td>{{ $account->questions }}</td>
-          <td>{{ $account->answears }}</td>
+          @foreach ($faq->where('category','account') as $faq)
+          <td>{{ $faq->questions }}</td>
+          <td>{{ $faq->answears }}</td>
           </tr> 
           @endforeach
         </table> 
